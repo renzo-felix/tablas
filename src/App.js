@@ -11,6 +11,7 @@ import { useScreenSizeClass } from './utils/media-query';
 import Content from './Content';
 import UnauthenticatedContent from './UnauthenticatedContent';
 
+
 function App() {
   const { user, loading } = useAuth();
 

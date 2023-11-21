@@ -1,7 +1,11 @@
-import { HomePage, TasksPage, ProfilePage } from './pages';
+import { HomePage, TasksPage, ProfilePage,ProductoPage } from './pages';
 import { withNavigationWatcher } from './contexts/navigation';
 
 const routes = [
+    {
+        path: '/Productos',
+        element: ProductoPage
+    },
     {
         path: '/tasks',
         element: TasksPage
