@@ -19,6 +19,10 @@ export const navigation = [
       {
         text: 'Productos',
         path: '/Productos'
+      },
+      {
+        text: 'Reserva',
+        path: '/Reserva'
       }
     ]
   }

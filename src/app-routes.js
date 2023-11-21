@@ -1,4 +1,4 @@
-import { HomePage, TasksPage, ProfilePage,ProductoPage } from './pages';
+import { HomePage, TasksPage, ProfilePage,ProductoPage, ReservarMesa } from './pages';
 import { withNavigationWatcher } from './contexts/navigation';
 
 const routes = [
@@ -17,6 +17,10 @@ const routes = [
     {
         path: '/home',
         element: HomePage
+    },
+    {
+        path: '/Reserva',
+        element: ReservarMesa
     }
 ];
 
