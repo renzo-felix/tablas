@@ -2,14 +2,14 @@ import { useEffect, useState } from "react"
 import { fetchProducto } from "../../api/dataService"
 import 'devextreme/data/odata/store';
 import DataGrid, { Column } from 'devextreme-react/data-grid';
-import { useParams } from "react-router-dom";
+import {useSearchParams} from "react-router-dom"  
 
 
 export default function Group() {
   // Se declara un estado llamado 'producto' utilizando useState.
   const [producto, setproducto] = useState();
-  const Param=useParams();
-  const miToken=Param.token;
+  const [Param]=useSearchParams();
+  const miToken=Param.get('token');
 
   // Utiliza useEffect para realizar la solicitud a la API cuando el componente se monta.
   useEffect(() => {
