@@ -3,13 +3,15 @@ import { fetchProducto } from "../../api/dataService"
 import 'devextreme/data/odata/store';
 import DataGrid, { Column } from 'devextreme-react/data-grid';
 import {useSearchParams} from "react-router-dom"  
+import Cookies from 'universal-cookie';
 
 
 export default function Group() {
   // Se declara un estado llamado 'producto' utilizando useState.
   const [producto, setproducto] = useState();
   const [Param]=useSearchParams();
-  const miToken=Param.get('token');
+  //const miToken=Param.get('token');
+  const cookies = cookies.get('miToken');
 
   // Utiliza useEffect para realizar la solicitud a la API cuando el componente se monta.
   useEffect(() => {
