@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import './home.scss';
 import Cookies from 'js-cookie';
@@ -15,7 +16,7 @@ export default function Home() {
     Cookies.set('token_', key);
     Cookies.set('valor2_', gmail);
     //Cookies.set('valor2_',gamil);
-    
+  
 
     
 

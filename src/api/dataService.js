@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Definición de la URL base para las solicitudes al servidor.
-const BASE_URL = 'https://proyectodbp-production.up.railway.app';
+const BASE_URL = "https://proyectodbp-production.up.railway.app";
 /*
 // Función asincrónica para recuperar grupos desde el servidor.
 export const fetchGroups = async () => {
