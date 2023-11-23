@@ -11,7 +11,7 @@ export default function Group() {
   // Se declara un estado llamado 'producto' utilizando useState.
   const [producto, setproducto] = useState();
   const miToken=Cookies2.get('token');
-  const email=Cookies2.get('valor2');
+
   
   // Utiliza useEffect para realizar la solicitud a la API cuando el componente se monta.
   useEffect(() => {
