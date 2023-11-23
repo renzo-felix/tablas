@@ -11,11 +11,9 @@ const optner = () => {
     document.cookie = `token=${valor1}; path=/`;
     document.cookie = `gmail=${valor2}; path=/`;
 
-    // También puedes establecer la fecha de expiración si es necesario, por ejemplo:
-    // document.cookie = `token=${valor1}; expires=Thu, 01 Jan 2024 00:00:00 GMT; path=/`;
-    // document.cookie = `gmail=${valor2}; expires=Thu, 01 Jan 2024 00:00:00 GMT; path=/`;
+    
 
-  }, []); // El segundo argumento [] asegura que este efecto se ejecute solo una vez al montar el componente.
+  }, []);}
 
 
 export default function Home() {
