@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import "./reserva.css";
 import { postRequest } from "../../api/dataService2";
-import {useSearchParams} from "react-router-dom" 
+
+import Cookies from 'js-cookie';
 
 
 function ReservarMesa() {
 
-  
- const [Param]=useSearchParams();
- const miToken=Param.get('token');
- 
+  const miToken=Cookies.get('token_')
  
 
 
   const [values, setValues] = useState({
-    email: '',
     idmesa: '', // Agregado el estado para idmesa
     idreserva: '', // Agregado el estado para idreserva
   });
@@ -28,17 +25,19 @@ function ReservarMesa() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Validación antes de la solicitud POST
-    if (values.email  && values.idmesa && values.idreserva&& values.fecha) {
-      postRequest(miToken, values.email, values.idmesa, values.idreserva,values.fecha)
+    if ( values.idmesa && values.idreserva&& values.fecha) {
+      postRequest(values.idmesa, values.idreserva,values.fecha,miToken)
       
         .then((response) => {
           // Manejar la respuesta de la solicitud POST si es necesario
           console.log(response);
+         
           
         })
         .catch((error) => {
           // Manejar errores de la solicitud POST si es necesario
           console.error('Hubo un problema con la solicitud POST:', error);
+          
         });
     } else {
       // Mostrar mensajes de error si los campos están vacíos
@@ -58,16 +57,7 @@ function ReservarMesa() {
         <div className="formContainer">
           <p className="contTitle">reserva</p>
           <form onSubmit={handleSubmit}>
-            <div className="inputSpace">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                placeholder="Email"
-                onChange={handleInput}
-                name="email"
-              />
-              {errors.email && <span> {errors.email} </span>}
-            </div>
+            
             <div className="inputSpace">
               <label htmlFor="idmesa">IdMesa</label>
               <input

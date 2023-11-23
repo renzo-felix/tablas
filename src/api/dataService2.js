@@ -1,25 +1,36 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://proyectodbp-production.up.railway.app';
+// La función que realizará la solicitud POST
+export  async function postRequest(mesaId, reservaId, fecha, token) {
+  try {
+    const url = 'https://proyectodbp-production.up.railway.app'; // Reemplaza con la URL y el endpoint correctos de tu API
 
+    // Datos que se enviarán en el cuerpo de la solicitud POST
+    const datos = {
+      mesaId: mesaId,
+      reservaId: reservaId,
+      fecha: fecha,
+    };
 
-// Función asincrónica para realizar una solicitud POST con parámetros.
-export const postRequest = async (token_, email_, idmesa_, idreserva_, fecha_) => {
-    try {
-        // Utiliza Axios para hacer una solicitud POST a la URL deseada.
-        const response = await axios.post(`${BASE_URL}/reserva`, {
-            token: token_,
-            email: email_,
-            MesaId: idmesa_,
-            reservaId: idreserva_,
-            fecha:fecha_
-        });
+    // Configuración de la solicitud, incluyendo el token en el encabezado Bearer
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-        // Devuelve los datos de la respuesta.
-        return response.data;
-    } catch (error) {
-        // Manejar errores de la solicitud.
-        console.error('Hubo un problema con la solicitud POST:', error);
-        throw error; // Puedes lanzar el error para que sea manejado por quien llame a esta función.
-    }
+    // Realizar la solicitud POST
+    const response = await axios.post(url, datos, config);
+
+    // Manejar la respuesta aquí (puede variar según la estructura de tu API)
+    console.log('Respuesta:', response.data);
+
+    // Devolver la respuesta si es necesario
+    return response.data;
+  } catch (error) {
+    // Manejar errores aquí
+    console.error('Error en la solicitud POST:', error);
+    throw error; // Puedes manejar el error según tus necesidades
+  }
 }
+

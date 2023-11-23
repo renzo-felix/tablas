@@ -15,7 +15,7 @@ export const fetchGroups = async () => {
 export const fetchProducto = async (token) => {
     try {
         // Utiliza Axios para hacer una solicitud GET a la URL de grupos.
-        const response = await axios.get(`${BASE_URL}/producto`, {
+        const response = await axios.get(`${BASE_URL}/mesa`, {
             headers: {
                 Authorization: `Bearer ${token}` // Agrega el token al encabezado de autorización
             }
@@ -25,7 +25,7 @@ export const fetchProducto = async (token) => {
         return response.data;
     } catch (error) {
         // Manejar errores aquí
-        console.error('Error al recuperar grupos:', error);
+        console.error('Error al recuperar mesas:', error);
         throw error;
     }
 };
