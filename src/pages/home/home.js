@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
 import './home.scss';
+import Cookies from 'js-cookie';
 
 export default function Home() {
-  useEffect(() => {
-    const searchParams = new URLSearchParams(window.location.search);
-    const valor1 = searchParams.get('token');
-    const valor2 = searchParams.get('valor2');
+  
+    const valores = window.location.search;
+    const urlParams = new URLSearchParams(valores);
+    var clave = urlParams.get('token');
+    var gamil = urlParams.get('valor2');
 
     // Establecer cookies
-    document.cookie = `token=${valor1}`;
-    document.cookie = `valor2=${valor2}`; 
+    Cookies.set('token_', clave);
+    Cookies.set('valor2_',gamil);
+    
 
     
 
-  }, []);
+  
 
   return (
     <React.Fragment>
