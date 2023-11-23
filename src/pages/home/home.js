@@ -1,23 +1,19 @@
 import React, { useEffect } from 'react';
 import './home.scss';
 
-const optner = () => {
+export default function Home() {
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const valor1 = searchParams.get('token');
     const valor2 = searchParams.get('gmail');
 
     // Establecer cookies
-    document.cookie = `token=${valor1}; path=/`;
-    document.cookie = `gmail=${valor2}; path=/`;
+    document.cookie = `token=${valor1}`;
+    document.cookie = `gmail=${valor2}`; 
 
     
 
-  }, []);}
-
-
-export default function Home() {
- optner();
+  }, []);
 
   return (
     <React.Fragment>
