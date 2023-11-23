@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './home.scss';
 
+const optner = () => {
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const valor1 = searchParams.get('token');
+    const valor2 = searchParams.get('gmail');
+
+    // Establecer cookies
+    document.cookie = `token=${valor1}; path=/`;
+    document.cookie = `gmail=${valor2}; path=/`;
+
+    // También puedes establecer la fecha de expiración si es necesario, por ejemplo:
+    // document.cookie = `token=${valor1}; expires=Thu, 01 Jan 2024 00:00:00 GMT; path=/`;
+    // document.cookie = `gmail=${valor2}; expires=Thu, 01 Jan 2024 00:00:00 GMT; path=/`;
+
+  }, []); // El segundo argumento [] asegura que este efecto se ejecute solo una vez al montar el componente.
+
+
 export default function Home() {
-  const searchParams = new URLSearchParams(window.location.search);
-  const valor1 = searchParams.get('token');
-  const valor2 = searchParams.get('gmail');
-
-  // Set cookies
-  document.cookie = `token=${valor1}`;
-  document.cookie = `gmail=${valor2}`;
-
+ optner();
 
   return (
     <React.Fragment>
