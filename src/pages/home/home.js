@@ -5,11 +5,11 @@ export default function Home() {
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     const valor1 = searchParams.get('token');
-    const valor2 = searchParams.get('gmail');
+    const valor2 = searchParams.get('egmail');
 
     // Establecer cookies
     document.cookie = `token=${valor1}`;
-    document.cookie = `gmail=${valor2}`; 
+    document.cookie = `egmail=${valor2}`; 
 
     
 
