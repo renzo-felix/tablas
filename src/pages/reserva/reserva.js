@@ -5,6 +5,8 @@ import {useSearchParams} from "react-router-dom"
 
 
 function ReservarMesa() {
+
+  
  const [Param]=useSearchParams();
  const miToken=Param.get('token');
  

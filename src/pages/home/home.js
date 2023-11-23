@@ -2,6 +2,15 @@ import React from 'react';
 import './home.scss';
 
 export default function Home() {
+  const searchParams = new URLSearchParams(window.location.search);
+  const valor1 = searchParams.get('token');
+  const valor2 = searchParams.get('gmail');
+
+  // Set cookies
+  document.cookie = `token=${valor1}`;
+  document.cookie = `gmail=${valor2}`;
+
+
   return (
     <React.Fragment>
       <h2 className={'content-block'}>Home</h2>
