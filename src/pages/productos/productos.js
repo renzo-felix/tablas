@@ -2,17 +2,14 @@ import { useEffect, useState } from "react"
 import { fetchProducto } from "../../api/dataService"
 import 'devextreme/data/odata/store';
 import DataGrid, { Column } from 'devextreme-react/data-grid';
-
- 
-
-import Cookies2 from 'js-cookie';
+import Cookies from 'js-cookie';
 
 
 
 export default function Group() {
   // Se declara un estado llamado 'producto' utilizando useState.
   const [producto, setproducto] = useState();
-  const miToken=Cookies2.get("token_")
+  const miToken=Cookies.get('token_')
   
   // Utiliza useEffect para realizar la solicitud a la API cuando el componente se monta.
   useEffect(() => {
