@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
 import './home.scss';
 import Cookies from 'js-cookie';
+import { useLocation } from 'react-router-dom';
 
 export default function Home() {
   
-    const valores = window.location.search;
-    const urlParams = new URLSearchParams(valores);
-    var clave = urlParams.get('token');
-    var gamil = urlParams.get('valor2');
-
+    let {search}=useLocation();
+    let query =new URLSearchParams(search);
+    let key= query.get("token")
+    console.log(key)
+    let gmail= query.get("valor2")
+    console.log(gmail)
     // Establecer cookies
-    Cookies.set('token_', clave);
-    Cookies.set('valor2_',gamil);
+    Cookies.set('token_', key);
+    Cookies.set('valor2_', gmail);
+    //Cookies.set('valor2_',gamil);
     
 
     
